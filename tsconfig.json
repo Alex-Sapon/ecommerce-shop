@@ -19,6 +19,8 @@
     "paths": {
       "assets/*": ["assets/*"],
       "components/*": ["components/*"],
+      "constants/*": ["constants/*"],
+      "styles/*": ["styles/*"],
       "pages/*": ["pages/*"],
       "contexts/*": ["contexts/*"],
       "api/*": ["api/*"]
