@@ -12,7 +12,6 @@ export default defineConfig({
       styles: '/src/styles',
       pages: '/src/pages',
       contexts: '/src/contexts',
-      api: '/src/api',
     },
   },
 });

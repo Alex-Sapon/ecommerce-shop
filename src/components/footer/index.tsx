@@ -1,11 +1,12 @@
+import { FooterWrapper } from 'components/footer/styles';
 import { Container } from 'styles/container';
 
 export const Footer = () => {
   return (
-    <footer>
+    <FooterWrapper>
       <Container>
         <div>Footer</div>
       </Container>
-    </footer>
+    </FooterWrapper>
   );
 };

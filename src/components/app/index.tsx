@@ -2,6 +2,7 @@ import { routes } from 'constants/routes';
 
 import { Footer } from 'components/footer';
 import { Header } from 'components/header';
+import { Sidebar } from 'components/sidebar';
 import { Route, Routes } from 'react-router-dom';
 import { Container } from 'styles/container';
 
@@ -16,6 +17,7 @@ export const App = () => {
           ))}
         </Routes>
       </Container>
+      <Sidebar />
       <Footer />
     </>
   );

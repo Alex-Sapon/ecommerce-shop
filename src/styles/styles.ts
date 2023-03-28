@@ -1,4 +1,3 @@
-// color palette
 const color = {
   white: '#fff',
   black: '#000',
@@ -46,7 +45,7 @@ const device = {
 export const theme = {
   color: {
     primary: color.white,
-    secondary: color.white,
+    secondary: color.black,
     tertiary: color.grey,
   },
   fontSize,

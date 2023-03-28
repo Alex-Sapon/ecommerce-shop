@@ -7,5 +7,6 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     list-style-type: none;
     text-decoration: none;
+    font-family: 'Poppins', sans-serif;
   }
 `;

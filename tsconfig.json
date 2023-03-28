@@ -23,7 +23,6 @@
       "styles/*": ["styles/*"],
       "pages/*": ["pages/*"],
       "contexts/*": ["contexts/*"],
-      "api/*": ["api/*"]
     }
   },
   "include": [
