@@ -1,7 +1,8 @@
 const color = {
   white: '#fff',
   black: '#000',
-  grey: '#e4e4e4',
+  grey: '#9f9f9f',
+  plus: '#dc4a4a',
 };
 
 const fontSize = {
@@ -18,8 +19,21 @@ const fontSize = {
   text_7xl: '72px',
 };
 
+const fontWeight = {
+  thin: 100,
+  extraLight: 200,
+  light: 300,
+  regular: 400,
+  medium: 500,
+  semiBold: 600,
+  bold: 700,
+  extraBold: 800,
+  black: 900,
+};
+
 const shadow = {
   header: 'rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px',
+  details: 'rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px',
 };
 
 const size = {
@@ -47,8 +61,10 @@ export const theme = {
     primary: color.white,
     secondary: color.black,
     tertiary: color.grey,
+    plus: color.plus,
   },
   fontSize,
+  fontWeight,
   shadow,
   device,
 };

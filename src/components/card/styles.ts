@@ -1,10 +1,55 @@
-import { BsPlus, BsEyeFill } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Wrapper = styled.li`
   display: grid;
   row-gap: 5px;
   position: relative;
+  overflow: hidden;
+`;
+
+export const Img = styled.img`
+  max-height: 160px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+`;
+
+export const Buttons = styled.div`
+  position: absolute;
+  top: 20px;
+  right: -100px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  opacity: 0;
+  transition: all 0.4s ease;
+
+  &:hover {
+    right: 20px;
+    opacity: 1;
+  }
+`;
+
+export const Plus = styled.div`
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: ${(props) => props.theme.color.plus};
+  cursor: pointer;
+`;
+
+export const Detail = styled(Link)`
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: ${(props) => props.theme.color.secondary};
+  background-color: ${(props) => props.theme.color.primary};
+  box-shadow: ${(props) => props.theme.shadow.details};
 `;
 
 export const ImgWrapper = styled.div`
@@ -18,42 +63,25 @@ export const ImgWrapper = styled.div`
   overflow: hidden;
   margin-bottom: 10px;
 
-  &:hover img {
+  &:hover ${Img} {
     transform: scale(1.1);
+  }
+
+  &:hover ~ ${Buttons} {
+    right: 20px;
+    opacity: 1;
   }
 `;
 
-export const Img = styled.img`
-  max-height: 160px;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-`;
-
-export const Subtitle = styled.h2`
+export const Title = styled.h2`
   text-transform: capitalize;
   font-size: ${(props) => props.theme.fontSize.text_base};
+  font-weight: ${(props) => props.theme.fontWeight.regular};
   color: ${(props) => props.theme.color.tertiary};
 `;
 
 export const Text = styled.p`
   font-size: ${(props) => props.theme.fontSize.text_sm};
+  font-weight: ${(props) => props.theme.fontWeight.medium};
   color: ${(props) => props.theme.color.secondary};
-`;
-
-export const Buttons = styled.div`
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  width: 40px;
-  height: 80px;
-  background-color: indianred;
-  display: flex;
-  flex-direction: column;
-  opacity: 0;
-`;
-
-export const Plus = styled(BsPlus)``;
-
-export const Detail = styled(BsEyeFill)`
-  background-color: ${(props) => props.theme.color.primary};
 `;

@@ -1,15 +1,18 @@
+import { useContext } from 'react';
+
 import {
-  Img,
-  Wrapper,
-  ImgWrapper,
-  Text,
-  Subtitle,
   Buttons,
-  Plus,
   Detail,
+  Img,
+  ImgWrapper,
+  Plus,
+  Title,
+  Text,
+  Wrapper,
 } from 'components/card/styles';
+import { CardContext } from 'contexts/CardContext';
 import { ProductsDataType } from 'contexts/ProductContext';
-import { Link } from 'react-router-dom';
+import { BsEyeFill, BsPlus } from 'react-icons/bs';
 
 type CardProps = {
   product: ProductsDataType;
@@ -18,19 +21,25 @@ type CardProps = {
 export const Card = ({ product }: CardProps) => {
   const { id, category, title, image, price } = product;
 
+  const { addToCart } = useContext(CardContext);
+
+  const handleAddToCart = () => addToCart(product);
+
   return (
     <Wrapper>
       <ImgWrapper>
         <Img src={image} />
       </ImgWrapper>
-      <Subtitle>{category}</Subtitle>
+      <Title>{category}</Title>
       <Text>{title}</Text>
       <Text>$ {price}</Text>
       <Buttons>
-        <Plus />
-        <Link to={`/products:${id}`}>
-          <Detail />
-        </Link>
+        <Plus>
+          <BsPlus onClick={handleAddToCart} />
+        </Plus>
+        <Detail to={`/product/${id}`}>
+          <BsEyeFill />
+        </Detail>
       </Buttons>
     </Wrapper>
   );

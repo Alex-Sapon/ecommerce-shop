@@ -16,6 +16,7 @@ export type ProductsDataType = {
     rate: number;
     count: number;
   };
+  amount: number;
 };
 
 export type ProductProviderType = {
