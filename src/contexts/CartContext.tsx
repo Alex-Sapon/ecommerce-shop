@@ -3,15 +3,15 @@ import { createContext, useCallback, useMemo, useState } from 'react';
 import { ProviderType } from 'components/types';
 import { ProductsDataType } from 'contexts/ProductContext';
 
-type CardContextType = {
+type CartContextType = {
   cart?: ProductsDataType[];
   addToCart: (product: ProductsDataType) => void;
   amount: number;
 };
 
-export const CardContext = createContext({} as CardContextType);
+export const CartContext = createContext({} as CartContextType);
 
-export const CardProvider = ({ children }: ProviderType) => {
+export const CartProvider = ({ children }: ProviderType) => {
   const [cart, setCart] = useState<ProductsDataType[]>([]);
   const [amount, setAmount] = useState(0);
 
@@ -38,8 +38,8 @@ export const CardProvider = ({ children }: ProviderType) => {
   }, [addToCart, cart, amount]);
 
   return (
-    <CardContext.Provider value={memoizedContext}>
+    <CartContext.Provider value={memoizedContext}>
       {children}
-    </CardContext.Provider>
+    </CartContext.Provider>
   );
 };

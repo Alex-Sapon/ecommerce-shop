@@ -3,7 +3,8 @@ import { PATH } from 'constants/paths';
 import { useContext } from 'react';
 
 import Logo from 'assets/img/logo.svg';
-import { CardContext } from 'contexts/CardContext';
+import { CartContext } from 'contexts/CartContext';
+import { SidebarContext } from 'contexts/SidebarContext';
 import { Link } from 'react-router-dom';
 import { Container } from 'styles/container';
 
@@ -17,7 +18,8 @@ import {
 } from './styles';
 
 export const Header = () => {
-  const { amount } = useContext(CardContext);
+  const { amount } = useContext(CartContext);
+  const { handleClose } = useContext(SidebarContext);
 
   return (
     <HeaderStyled>
@@ -27,7 +29,7 @@ export const Header = () => {
             <HomeBtn src={Logo} />
           </Link>
           <BagWrapper>
-            <BagBtn />
+            <BagBtn onClick={handleClose} />
             <Quantity>{amount}</Quantity>
           </BagWrapper>
         </Wrapper>

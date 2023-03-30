@@ -34,6 +34,7 @@ const fontWeight = {
 const shadow = {
   header: 'rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px',
   details: 'rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px',
+  sidebar: '10px 0px 25px 0px rgba(0,0,0,0.45)',
 };
 
 const size = {

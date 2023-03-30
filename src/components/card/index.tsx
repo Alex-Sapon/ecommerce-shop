@@ -10,7 +10,7 @@ import {
   Text,
   Wrapper,
 } from 'components/card/styles';
-import { CardContext } from 'contexts/CardContext';
+import { CartContext } from 'contexts/CartContext';
 import { ProductsDataType } from 'contexts/ProductContext';
 import { BsEyeFill, BsPlus } from 'react-icons/bs';
 
@@ -21,7 +21,7 @@ type CardProps = {
 export const Card = ({ product }: CardProps) => {
   const { id, category, title, image, price } = product;
 
-  const { addToCart } = useContext(CardContext);
+  const { addToCart } = useContext(CartContext);
 
   const handleAddToCart = () => addToCart(product);
 
