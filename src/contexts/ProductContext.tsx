@@ -1,4 +1,6 @@
-import { createContext, ReactNode, useEffect, useMemo, useState } from 'react';
+import { createContext, useEffect, useMemo, useState } from 'react';
+
+import { ProviderType } from 'components/types';
 
 export type ProductContextType = {
   products: ProductsDataType[];
@@ -19,13 +21,9 @@ export type ProductsDataType = {
   amount: number;
 };
 
-export type ProductProviderType = {
-  children: ReactNode;
-};
-
 export const ProductContext = createContext({} as ProductContextType);
 
-export const ProductProvider = ({ children }: ProductProviderType) => {
+export const ProductProvider = ({ children }: ProviderType) => {
   const [products, setProducts] = useState<ProductsDataType[]>([]);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 

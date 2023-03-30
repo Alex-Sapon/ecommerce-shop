@@ -1,6 +1,9 @@
 import { PATH } from 'constants/paths';
 
+import { useContext } from 'react';
+
 import Logo from 'assets/img/logo.svg';
+import { CardContext } from 'contexts/CardContext';
 import { Link } from 'react-router-dom';
 import { Container } from 'styles/container';
 
@@ -14,6 +17,8 @@ import {
 } from './styles';
 
 export const Header = () => {
+  const { amount } = useContext(CardContext);
+
   return (
     <HeaderStyled>
       <Container>
@@ -23,7 +28,7 @@ export const Header = () => {
           </Link>
           <BagWrapper>
             <BagBtn />
-            <Quantity>0</Quantity>
+            <Quantity>{amount}</Quantity>
           </BagWrapper>
         </Wrapper>
       </Container>
