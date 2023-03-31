@@ -6,6 +6,9 @@ import { ProductsDataType } from 'contexts/ProductContext';
 type CartContextType = {
   cart?: ProductsDataType[];
   addToCart: (product: ProductsDataType) => void;
+  removeFromCart: (id: number) => void;
+  deleteProduct: (id: number) => void;
+  clearCart: () => void;
   amount: number;
 };
 
@@ -17,15 +20,15 @@ export const CartProvider = ({ children }: ProviderType) => {
 
   const addToCart = useCallback(
     (product: ProductsDataType) => {
-      setCart((prevCart) => {
-        if (prevCart.find((item) => item.id === product.id)) {
-          return prevCart.map((item) => {
+      setCart(() => {
+        if (cart.find((item) => item.id === product.id)) {
+          return cart.map((item) => {
             return item.id === product.id
               ? { ...item, amount: item.amount + 1 }
               : item;
           });
         }
-        return [...prevCart, { ...product, amount: 1 }];
+        return [...cart, { ...product, amount: 1 }];
       });
 
       setAmount(cart.reduce((acc, item) => acc + item.amount, 1));
@@ -33,9 +36,52 @@ export const CartProvider = ({ children }: ProviderType) => {
     [cart]
   );
 
+  const deleteProduct = useCallback(
+    (id: number) => {
+      setCart(cart.filter((product) => product.id !== id));
+      setAmount(cart.reduce((acc, item) => acc + item.amount, 0));
+    },
+    [cart]
+  );
+
+  const removeFromCart = useCallback(
+    (id: number) => {
+      const cartItem = cart.find((item) => item.id === id);
+
+      if (cartItem) {
+        const newCart = cart.map((item) => {
+          return item.id === id
+            ? {
+                ...item,
+                amount: item.amount > 1 ? item.amount - 1 : item.amount,
+              }
+            : item;
+        });
+
+        setCart(newCart);
+      }
+
+      if (cartItem && cartItem.amount < 2) {
+        deleteProduct(id);
+      }
+
+      setAmount(cart.reduce((acc, item) => acc + item.amount, 1));
+    },
+    [cart, deleteProduct]
+  );
+
+  const clearCart = () => setCart([]);
+
   const memoizedContext = useMemo(() => {
-    return { addToCart, cart, amount };
-  }, [addToCart, cart, amount]);
+    return {
+      addToCart,
+      removeFromCart,
+      deleteProduct,
+      clearCart,
+      cart,
+      amount,
+    };
+  }, [addToCart, removeFromCart, deleteProduct, cart, amount]);
 
   return (
     <CartContext.Provider value={memoizedContext}>

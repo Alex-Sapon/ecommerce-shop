@@ -1,12 +1,12 @@
 import { useContext } from 'react';
 
+import { CartItem } from 'components/cartItem';
 import {
   Wrapper,
   Header,
   Title,
   GoBack,
-  ProductList,
-  ProductItem,
+  CartList,
 } from 'components/sidebar/styles';
 import { CartContext } from 'contexts/CartContext';
 import { SidebarContext } from 'contexts/SidebarContext';
@@ -23,11 +23,11 @@ export const Sidebar = () => {
         <Title>{`Shopping Bag (${amount})`}</Title>
         <GoBack onClick={handleClose} />
       </Header>
-      <ProductList>
-        {cart?.map((item) => (
-          <ProductItem key={item.id}>{item.title}</ProductItem>
+      <CartList>
+        {cart?.map((product) => (
+          <CartItem key={product.id} product={product} />
         ))}
-      </ProductList>
+      </CartList>
     </Wrapper>
   );
 };

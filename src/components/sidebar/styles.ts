@@ -15,11 +15,11 @@ export const Wrapper = styled.div`
   box-shadow: ${(props) => props.theme.shadow.sidebar};
 
   @media (${(props) => props.theme.device.tablet}) {
-    width: 35vw;
+    width: 50vw;
   }
 
   @media (${(props) => props.theme.device.laptop}) {
-    width: 30vw;
+    width: 35vw;
   }
 `;
 
@@ -29,7 +29,6 @@ export const Header = styled.div`
   justify-content: space-between;
   border-bottom: 1px solid ${(props) => props.theme.color.tertiary};
   padding-bottom: 20px;
-  margin-bottom: 20px;
 `;
 
 export const Title = styled.div`
@@ -43,6 +42,6 @@ export const GoBack = styled(IoMdArrowForward)`
   cursor: pointer;
 `;
 
-export const ProductList = styled.ul``;
+export const CartList = styled.ul``;
 
-export const ProductItem = styled.li``;
+export const Trash = styled(FiTrash2)``;

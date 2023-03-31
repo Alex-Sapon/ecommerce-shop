@@ -3,6 +3,7 @@ const color = {
   black: '#000',
   grey: '#9f9f9f',
   plus: '#dc4a4a',
+  close: '#f33d3d',
 };
 
 const fontSize = {
@@ -63,6 +64,7 @@ export const theme = {
     secondary: color.black,
     tertiary: color.grey,
     plus: color.plus,
+    close: color.close,
   },
   fontSize,
   fontWeight,

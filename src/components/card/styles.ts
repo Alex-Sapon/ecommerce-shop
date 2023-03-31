@@ -36,6 +36,8 @@ export const Plus = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: ${(props) => props.theme.fontSize.text_2xl};
+  color: ${(props) => props.theme.color.primary};
   background-color: ${(props) => props.theme.color.plus};
   cursor: pointer;
 `;
