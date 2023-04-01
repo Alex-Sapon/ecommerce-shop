@@ -1,5 +1,11 @@
+import { Container } from 'styles/container';
+
 const ProductDetails = () => {
-  return <div>ProductDetails</div>;
+  return (
+    <Container>
+      <div>ProductDetails</div>
+    </Container>
+  );
 };
 
 export default ProductDetails;

@@ -21,7 +21,7 @@ import { formatCurrency } from 'utilities/formatCurrency';
 
 export const Sidebar = () => {
   const { isOpen, handleClose } = useContext(SidebarContext);
-  const { amount, cart, clearCart } = useContext(CartContext);
+  const { calculation, cart, clearCart } = useContext(CartContext);
 
   const handleClearCart = () => clearCart();
 
@@ -30,23 +30,23 @@ export const Sidebar = () => {
   return (
     <Wrapper>
       <Header>
-        <Title>{`Shopping Bag (${amount})`}</Title>
+        <Title>{`Shopping Bag (${calculation.amount})`}</Title>
         <GoBack onClick={handleClose} />
       </Header>
       <CartList>
-        {cart?.map((product) => (
+        {cart.map((product) => (
           <CartItem key={product.id} product={product} />
         ))}
       </CartList>
       <Footer>
         <PriceWrapper>
-          <TotalPrice>Total: {formatCurrency(1000)}</TotalPrice>
+          <TotalPrice>Total: {formatCurrency(calculation.total)}</TotalPrice>
           <Trash>
             <FiTrash2 onClick={handleClearCart} />
           </Trash>
         </PriceWrapper>
-        <ButtonView handleClick={() => {}} />
-        <ButtonCheckout handleClick={() => {}} />
+        <ButtonView>View cart</ButtonView>
+        <ButtonCheckout>Checkout</ButtonCheckout>
       </Footer>
     </Wrapper>
   );

@@ -15,8 +15,12 @@ export const Wrapper = styled.li`
 `;
 
 export const Image = styled.img`
-  width: 70px;
+  width: 50px;
   object-fit: cover;
+
+  @media (${(props) => props.theme.device.mobileL}) {
+    width: 70px;
+  }
 `;
 
 export const Body = styled.div`
@@ -32,11 +36,15 @@ export const Header = styled.div`
 
 export const Title = styled.h3`
   text-transform: uppercase;
-  font-size: ${(props) => props.theme.fontSize.text_sm};
+  font-size: ${(props) => props.theme.fontSize.text_xs};
   font-weight: ${(props) => props.theme.fontWeight.medium};
 
   &:hover {
     text-decoration: underline;
+  }
+
+  @media (${(props) => props.theme.device.mobileL}) {
+    font-size: ${(props) => props.theme.fontSize.text_sm};
   }
 `;
 
@@ -44,9 +52,14 @@ export const Counter = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
-  width: 100px;
-  padding: 3px 5px;
+  width: 90px;
+  height: 30px;
   border: 1px solid ${(props) => props.theme.color.tertiary};
+
+  @media (${(props) => props.theme.device.mobileL}) {
+    width: 100px;
+    height: 35px;
+  }
 `;
 
 export const Amount = styled.span`
@@ -65,14 +78,22 @@ export const Increment = styled(FiPlus)`
 
 export const Price = styled.span`
   color: ${(props) => props.theme.color.tertiary};
-  font-size: ${(props) => props.theme.fontSize.text_sm};
+  font-size: ${(props) => props.theme.fontSize.text_xs};
+
+  @media (${(props) => props.theme.device.mobileL}) {
+    font-size: ${(props) => props.theme.fontSize.text_sm};
+  }
 `;
 
 export const TotalPrice = styled.span`
   margin-left: auto;
   color: ${(props) => props.theme.color.secondary};
-  font-size: ${(props) => props.theme.fontSize.text_sm};
+  font-size: ${(props) => props.theme.fontSize.text_xs};
   font-weight: ${(props) => props.theme.fontWeight.medium};
+
+  @media (${(props) => props.theme.device.mobileL}) {
+    font-size: ${(props) => props.theme.fontSize.text_sm};
+  }
 `;
 
 export const Remove = styled(RiCloseFill)`

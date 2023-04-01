@@ -10,19 +10,19 @@ import { ProviderType } from 'components/types';
 import { ProductsDataType } from 'contexts/ProductContext';
 
 type CartContextType = {
-  cart?: ProductsDataType[];
+  cart: ProductsDataType[];
   addToCart: (product: ProductsDataType) => void;
   removeFromCart: (id: number) => void;
   deleteProduct: (id: number) => void;
   clearCart: () => void;
-  amount: number;
+  calculation: { amount: number; total: number };
 };
 
 export const CartContext = createContext({} as CartContextType);
 
 export const CartProvider = ({ children }: ProviderType) => {
   const [cart, setCart] = useState<ProductsDataType[]>([]);
-  const [amount, setAmount] = useState(0);
+  const [calculation, setCalculation] = useState({ amount: 0, total: 0 });
 
   const addToCart = useCallback(
     (product: ProductsDataType) => {
@@ -80,12 +80,15 @@ export const CartProvider = ({ children }: ProviderType) => {
       deleteProduct,
       clearCart,
       cart,
-      amount,
+      calculation,
     };
-  }, [addToCart, removeFromCart, deleteProduct, cart, amount]);
+  }, [addToCart, removeFromCart, deleteProduct, cart, calculation]);
 
   useEffect(() => {
-    setAmount(cart.reduce((acc, item) => acc + item.amount, 0));
+    setCalculation({
+      amount: cart.reduce((acc, item) => acc + item.amount, 0),
+      total: cart.reduce((acc, item) => acc + item.amount * item.price, 0),
+    });
   }, [cart]);
 
   return (

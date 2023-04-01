@@ -1,9 +1,10 @@
 import { Wrapper } from 'components/about/styles';
+import { Container } from 'styles/container';
 
 export const About = () => {
   return (
     <Wrapper>
-      <div>About</div>
+      <Container>hello</Container>
     </Wrapper>
   );
 };

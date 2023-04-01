@@ -1,4 +1,3 @@
-import { Button } from 'components/button';
 import { IoMdArrowForward } from 'react-icons/io';
 import styled from 'styled-components';
 
@@ -76,9 +75,13 @@ export const PriceWrapper = styled.div`
 
 export const TotalPrice = styled.span`
   text-transform: uppercase;
-  font-size: ${(props) => props.theme.fontSize.text_base};
+  font-size: ${(props) => props.theme.fontSize.text_sm};
   font-weight: ${(props) => props.theme.fontWeight.semiBold};
   color: ${(props) => props.theme.color.secondary};
+
+  @media (${(props) => props.theme.device.mobileL}) {
+    font-size: ${(props) => props.theme.fontSize.text_base};
+  }
 `;
 
 export const Trash = styled.span`
@@ -93,13 +96,24 @@ export const Trash = styled.span`
   background-color: ${(props) => props.theme.color.trash};
 `;
 
-export const ButtonView = styled(Button).attrs({
-  text: 'View cart',
-})`
-  margin-top: 20px;
+const Button = styled.button`
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  font-size: ${(props) => props.theme.fontSize.text_sm};
+  font-weight: ${(props) => props.theme.fontWeight.medium};
+  color: ${(props) => props.theme.color.primary};
+  background-color: ${(props) => props.theme.color.secondary};
+`;
+
+export const ButtonView = styled(Button)`
+  margin: 10px 0;
+  color: ${(props) => props.theme.color.secondary};
   background-color: ${(props) => props.theme.color.tertiary};
 `;
 
-export const ButtonCheckout = styled(Button).attrs({
-  text: 'Checkout',
-})``;
+export const ButtonCheckout = styled(Button)``;

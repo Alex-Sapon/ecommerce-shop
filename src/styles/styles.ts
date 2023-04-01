@@ -2,9 +2,13 @@ const color = {
   white: '#fff',
   black: '#000',
   grey: '#9f9f9f',
+  quantity: '#ea3b3b',
   plus: '#dc4a4a',
   close: '#f33d3d',
   trash: '#dc4a4a',
+  headerPrimary: '#f5e6e0',
+  headerSecondary: '#fff',
+  footer: '#282828',
 };
 
 const fontSize = {
@@ -64,9 +68,13 @@ export const theme = {
     primary: color.white,
     secondary: color.black,
     tertiary: color.grey,
+    quantity: color.quantity,
     plus: color.plus,
     close: color.close,
     trash: color.trash,
+    headerPrimary: color.headerPrimary,
+    headerSecondary: color.headerSecondary,
+    footer: color.footer,
   },
   fontSize,
   fontWeight,

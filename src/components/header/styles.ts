@@ -1,17 +1,39 @@
 import { BsBag } from 'react-icons/bs';
 import styled from 'styled-components';
 
-export const HeaderStyled = styled.header`
-  padding: 15px 0;
-  background-color: ${(props) => props.theme.color.primary};
-  position: sticky;
-  box-shadow: ${(props) => props.theme.shadow.header};
+type HeaderStyledProps = {
+  isActive: boolean;
+};
+
+export const HeaderStyled = styled.header<HeaderStyledProps>`
+  position: fixed;
+  z-index: ${(props) => (props.isActive ? 10 : 0)};
+  top: 0;
+  width: 100%;
+  transition: all 0.2s ease;
+  background-color: ${(props) => {
+    return props.isActive
+      ? props.theme.color.headerSecondary
+      : props.theme.color.headerPrimary;
+  }};
+  box-shadow: ${(props) => {
+    return props.isActive ? props.theme.shadow.header : 'none';
+  }};
 `;
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<HeaderStyledProps>`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: all 0.2s ease;
+  padding: ${(props) => {
+    return props.isActive ? '16px 0 16px 0' : '13px 0 14px 0';
+  }};
+
+  a {
+    width: 30px;
+    height: 30px;
+  }
 `;
 
 export const HomeBtn = styled.img`
@@ -30,7 +52,10 @@ export const BagBtn = styled(BsBag)`
 `;
 
 export const Quantity = styled.span`
+  transition: all 0.2s ease;
   position: absolute;
+  bottom: 0;
+  right: 0;
   padding: 8px;
   display: flex;
   justify-content: center;
@@ -38,10 +63,8 @@ export const Quantity = styled.span`
   width: 19px;
   height: 19px;
   border-radius: 100%;
-  background-color: #ea3b3b;
+  transform: translate(40%, 35%);
+  background-color: ${(props) => props.theme.color.quantity};
   font-size: ${(props) => props.theme.fontSize.text_xs};
   color: ${(props) => props.theme.color.primary};
-  transform: translate(40%, 35%);
-  bottom: 0;
-  right: 0;
 `;
