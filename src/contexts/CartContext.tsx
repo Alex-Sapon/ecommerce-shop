@@ -1,4 +1,10 @@
-import { createContext, useCallback, useMemo, useState } from 'react';
+import {
+  createContext,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 
 import { ProviderType } from 'components/types';
 import { ProductsDataType } from 'contexts/ProductContext';
@@ -30,8 +36,6 @@ export const CartProvider = ({ children }: ProviderType) => {
         }
         return [...cart, { ...product, amount: 1 }];
       });
-
-      setAmount(cart.reduce((acc, item) => acc + item.amount, 1));
     },
     [cart]
   );
@@ -39,7 +43,6 @@ export const CartProvider = ({ children }: ProviderType) => {
   const deleteProduct = useCallback(
     (id: number) => {
       setCart(cart.filter((product) => product.id !== id));
-      setAmount(cart.reduce((acc, item) => acc + item.amount, 0));
     },
     [cart]
   );
@@ -64,16 +67,11 @@ export const CartProvider = ({ children }: ProviderType) => {
       if (cartItem && cartItem.amount < 2) {
         deleteProduct(id);
       }
-
-      setAmount(cart.reduce((acc, item) => acc + item.amount, 1));
     },
     [cart, deleteProduct]
   );
 
-  const clearCart = () => {
-    setCart([]);
-    setAmount(0);
-  };
+  const clearCart = () => setCart([]);
 
   const memoizedContext = useMemo(() => {
     return {
@@ -85,6 +83,10 @@ export const CartProvider = ({ children }: ProviderType) => {
       amount,
     };
   }, [addToCart, removeFromCart, deleteProduct, cart, amount]);
+
+  useEffect(() => {
+    setAmount(cart.reduce((acc, item) => acc + item.amount, 0));
+  }, [cart]);
 
   return (
     <CartContext.Provider value={memoizedContext}>
