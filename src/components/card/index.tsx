@@ -13,6 +13,7 @@ import {
 import { CartContext } from 'contexts/CartContext';
 import { ProductsDataType } from 'contexts/ProductContext';
 import { BsEyeFill, BsPlus } from 'react-icons/bs';
+import { formatCurrency } from 'utilities/formatCurrency';
 
 type CardProps = {
   product: ProductsDataType;
@@ -32,7 +33,7 @@ export const Card = ({ product }: CardProps) => {
       </ImgWrapper>
       <Title>{category}</Title>
       <Text>{title}</Text>
-      <Text>$ {price}</Text>
+      <Text>{formatCurrency(price)}</Text>
       <Buttons>
         <Plus>
           <BsPlus onClick={handleAddToCart} />

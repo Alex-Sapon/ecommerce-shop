@@ -4,6 +4,7 @@ const color = {
   grey: '#9f9f9f',
   plus: '#dc4a4a',
   close: '#f33d3d',
+  trash: '#dc4a4a',
 };
 
 const fontSize = {
@@ -65,6 +66,7 @@ export const theme = {
     tertiary: color.grey,
     plus: color.plus,
     close: color.close,
+    trash: color.trash,
   },
   fontSize,
   fontWeight,

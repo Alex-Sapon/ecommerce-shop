@@ -70,7 +70,10 @@ export const CartProvider = ({ children }: ProviderType) => {
     [cart, deleteProduct]
   );
 
-  const clearCart = () => setCart([]);
+  const clearCart = () => {
+    setCart([]);
+    setAmount(0);
+  };
 
   const memoizedContext = useMemo(() => {
     return {

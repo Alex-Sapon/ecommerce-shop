@@ -6,6 +6,7 @@ export const Wrapper = styled.li`
   row-gap: 5px;
   position: relative;
   overflow: hidden;
+  user-select: none;
 `;
 
 export const Img = styled.img`

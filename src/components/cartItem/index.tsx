@@ -18,6 +18,7 @@ import {
 import { CartContext } from 'contexts/CartContext';
 import { ProductsDataType } from 'contexts/ProductContext';
 import { Link } from 'react-router-dom';
+import { formatCurrency } from 'utilities/formatCurrency';
 
 type CartItemProps = {
   product: ProductsDataType;
@@ -52,10 +53,8 @@ export const CartItem = ({ product }: CartItemProps) => {
             <Amount>{amount}</Amount>
             <Increment onClick={handleAddToCart} />
           </Counter>
-          <Price>$ {price}</Price>
-          <TotalPrice>
-            $ {parseFloat(String(amount * price)).toFixed(2)}
-          </TotalPrice>
+          <Price>{formatCurrency(price)}</Price>
+          <TotalPrice>{formatCurrency(amount * price)}</TotalPrice>
         </Footer>
       </Body>
     </Wrapper>
