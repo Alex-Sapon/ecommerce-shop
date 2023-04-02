@@ -11,18 +11,18 @@ import { GlobalStyles } from 'styles/global';
 import { theme } from 'styles/styles';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <ProductProvider>
-    <CartProvider>
-      <SidebarProvider>
-        <ThemeProvider theme={theme}>
-          <React.StrictMode>
-            <Router>
+  <Router>
+    <ProductProvider>
+      <CartProvider>
+        <SidebarProvider>
+          <ThemeProvider theme={theme}>
+            <React.StrictMode>
               <App />
               <GlobalStyles />
-            </Router>
-          </React.StrictMode>
-        </ThemeProvider>
-      </SidebarProvider>
-    </CartProvider>
-  </ProductProvider>
+            </React.StrictMode>
+          </ThemeProvider>
+        </SidebarProvider>
+      </CartProvider>
+    </ProductProvider>
+  </Router>
 );

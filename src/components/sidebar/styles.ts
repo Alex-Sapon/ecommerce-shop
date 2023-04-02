@@ -1,5 +1,6 @@
 import { IoMdArrowForward } from 'react-icons/io';
 import styled from 'styled-components';
+import { Button } from 'styles/button';
 
 export const Wrapper = styled.div`
   position: fixed;
@@ -94,20 +95,6 @@ export const Trash = styled.span`
   font-size: ${(props) => props.theme.fontSize.text_lg};
   color: ${(props) => props.theme.color.primary};
   background-color: ${(props) => props.theme.color.trash};
-`;
-
-const Button = styled.button`
-  width: 100%;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  cursor: pointer;
-  font-size: ${(props) => props.theme.fontSize.text_sm};
-  font-weight: ${(props) => props.theme.fontWeight.medium};
-  color: ${(props) => props.theme.color.primary};
-  background-color: ${(props) => props.theme.color.secondary};
 `;
 
 export const ButtonView = styled(Button)`

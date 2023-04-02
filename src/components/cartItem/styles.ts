@@ -6,11 +6,15 @@ export const Wrapper = styled.li`
   display: flex;
   align-items: center;
   column-gap: 20px;
-  padding: 30px 10px;
+  padding: 30px 0;
   border-bottom: 1px solid ${(props) => props.theme.color.tertiary};
 
   a {
     color: ${(props) => props.theme.color.secondary};
+  }
+
+  @media (${(props) => props.theme.device.mobileL}) {
+    padding: 30px 10px;
   }
 `;
 
@@ -48,6 +52,17 @@ export const Title = styled.h3`
   }
 `;
 
+export const Footer = styled.div`
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+  font-size: ${(props) => props.theme.fontSize.text_xs};
+
+  @media (${(props) => props.theme.device.mobileL}) {
+    font-size: ${(props) => props.theme.fontSize.text_sm};
+  }
+`;
+
 export const Counter = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -69,31 +84,30 @@ export const Amount = styled.span`
 export const Decrement = styled(FiMinus)`
   margin: 0 auto;
   cursor: pointer;
+  font-size: ${(props) => props.theme.fontSize.text_base};
+
+  @media (${(props) => props.theme.device.mobileL}) {
+    font-size: ${(props) => props.theme.fontSize.text_lg};
+  }
 `;
 
 export const Increment = styled(FiPlus)`
   margin: 0 auto;
   cursor: pointer;
+
+  @media (${(props) => props.theme.device.mobileL}) {
+    font-size: ${(props) => props.theme.fontSize.text_lg};
+  }
 `;
 
 export const Price = styled.span`
   color: ${(props) => props.theme.color.tertiary};
-  font-size: ${(props) => props.theme.fontSize.text_xs};
-
-  @media (${(props) => props.theme.device.mobileL}) {
-    font-size: ${(props) => props.theme.fontSize.text_sm};
-  }
 `;
 
 export const TotalPrice = styled.span`
   margin-left: auto;
   color: ${(props) => props.theme.color.secondary};
-  font-size: ${(props) => props.theme.fontSize.text_xs};
   font-weight: ${(props) => props.theme.fontWeight.medium};
-
-  @media (${(props) => props.theme.device.mobileL}) {
-    font-size: ${(props) => props.theme.fontSize.text_sm};
-  }
 `;
 
 export const Remove = styled(RiCloseFill)`
@@ -108,10 +122,4 @@ export const Remove = styled(RiCloseFill)`
     color: ${(props) => props.theme.color.close};
     transform: scale(1.2);
   }
-`;
-
-export const Footer = styled.div`
-  display: flex;
-  align-items: center;
-  column-gap: 20px;
 `;

@@ -9,6 +9,8 @@ const color = {
   headerPrimary: '#f5e6e0',
   headerSecondary: '#fff',
   footer: '#282828',
+  line: '#e36262',
+  detailsPrice: '#d73535',
 };
 
 const fontSize = {
@@ -35,6 +37,15 @@ const fontWeight = {
   bold: 700,
   extraBold: 800,
   black: 900,
+};
+
+const lineHeight = {
+  leading_none: 1,
+  leading_tight: 1.25,
+  leading_snug: 1.375,
+  leading_normal: 1.5,
+  leading_relaxed: 1.625,
+  leading_loose: 2,
 };
 
 const shadow = {
@@ -75,9 +86,12 @@ export const theme = {
     headerPrimary: color.headerPrimary,
     headerSecondary: color.headerSecondary,
     footer: color.footer,
+    line: color.line,
+    detailsPrice: color.detailsPrice,
   },
   fontSize,
   fontWeight,
+  lineHeight,
   shadow,
   device,
 };
