@@ -24,6 +24,7 @@
       "pages/*": ["pages/*"],
       "contexts/*": ["contexts/*"],
       "utilities/*": ["utilities/*"],
+      "hooks/*": ["hooks/*"],
     }
   },
   "include": [

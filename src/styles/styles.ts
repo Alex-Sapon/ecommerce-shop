@@ -1,16 +1,17 @@
 const color = {
-  white: '#fff',
-  black: '#000',
-  grey: '#9f9f9f',
+  primary: '#fff',
+  secondary: '#000',
+  tertiary: '#9f9f9f',
   quantity: '#ea3b3b',
   plus: '#dc4a4a',
   close: '#f33d3d',
   trash: '#dc4a4a',
-  headerPrimary: '#f5e6e0',
-  headerSecondary: '#fff',
+  header: '#fff',
   footer: '#282828',
   line: '#e36262',
   detailsPrice: '#d73535',
+  spinner: '#9f9f9f',
+  about: '#f5e6e0',
 };
 
 const fontSize = {
@@ -76,18 +77,19 @@ const device = {
 
 export const theme = {
   color: {
-    primary: color.white,
-    secondary: color.black,
-    tertiary: color.grey,
+    primary: color.primary,
+    secondary: color.secondary,
+    tertiary: color.tertiary,
     quantity: color.quantity,
     plus: color.plus,
     close: color.close,
     trash: color.trash,
-    headerPrimary: color.headerPrimary,
-    headerSecondary: color.headerSecondary,
+    header: color.header,
     footer: color.footer,
     line: color.line,
     detailsPrice: color.detailsPrice,
+    spinner: color.spinner,
+    about: color.about,
   },
   fontSize,
   fontWeight,

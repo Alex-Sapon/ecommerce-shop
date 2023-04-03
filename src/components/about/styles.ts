@@ -4,12 +4,10 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Wrapper = styled.section`
-  background-image: url('/src/assets/img/bg_hero.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 500px;
-  margin: 48px 0 50px 0;
-  padding-top: 10px;
+  background-color: ${(props) => props.theme.color.about};
+  height: 440px;
+  padding-top: 20px;
+  margin-bottom: 50px;
 
   @media (${(props) => props.theme.device.tablet}) {
     height: 800px;
@@ -77,9 +75,10 @@ export const Subtitle = styled(Link).attrs({
 
 export const Image = styled.img`
   display: none;
-  height: 100%;
+  height: 90%;
 
   @media (${(props) => props.theme.device.tablet}) {
+    margin-top: auto;
     display: block;
   }
 `;

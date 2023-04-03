@@ -9,6 +9,7 @@ import {
   Title,
   Wrapper,
 } from 'components/details/styles';
+import { Spinner } from 'components/spinner';
 import { CartContext } from 'contexts/CartContext';
 import { ProductContext, ProductsDataType } from 'contexts/ProductContext';
 import { useParams } from 'react-router-dom';
@@ -33,11 +34,9 @@ export const Details = () => {
     }
   }, [products, id]);
 
-  if (!product) {
-    return <div>Loading...</div>;
-  }
-
   const handleAddToCart = () => addToCart(product);
+
+  if (!product) return <Spinner />;
 
   return (
     <Wrapper>

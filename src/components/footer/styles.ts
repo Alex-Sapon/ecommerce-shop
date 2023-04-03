@@ -10,6 +10,7 @@ export const FooterWrapper = styled.footer`
 `;
 
 export const Text = styled.p`
+  text-align: center;
   font-size: ${(props) => props.theme.fontSize.text_sm};
   font-weight: ${(props) => props.theme.fontWeight.light};
 `;

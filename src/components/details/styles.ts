@@ -28,9 +28,14 @@ export const Image = styled.img`
 export const Body = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   row-gap: 10px;
   font-weight: ${(props) => props.theme.fontWeight.regular};
   font-size: ${(props) => props.theme.fontSize.text_sm};
+
+  @media (${(props) => props.theme.device.tablet}) {
+    align-items: flex-start;
+  }
 `;
 
 export const Title = styled.h2`
@@ -43,7 +48,9 @@ export const Price = styled.span`
   color: ${(props) => props.theme.color.detailsPrice};
 `;
 
-export const Description = styled.p``;
+export const Description = styled.p`
+  margin-bottom: 10px;
+`;
 
 export const ButtonAdd = styled(Button)`
   width: 120px;

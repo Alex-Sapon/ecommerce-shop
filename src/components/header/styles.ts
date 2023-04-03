@@ -7,14 +7,12 @@ type HeaderStyledProps = {
 
 export const HeaderStyled = styled.header<HeaderStyledProps>`
   position: fixed;
-  z-index: ${(props) => (props.isActive ? 10 : 0)};
   top: 0;
   width: 100%;
+  z-index: 200;
   transition: all 0.2s ease;
   background-color: ${(props) => {
-    return props.isActive
-      ? props.theme.color.headerSecondary
-      : props.theme.color.headerPrimary;
+    return props.isActive ? props.theme.color.header : 'none';
   }};
   box-shadow: ${(props) => {
     return props.isActive ? props.theme.shadow.header : 'none';

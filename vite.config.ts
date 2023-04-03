@@ -13,6 +13,7 @@ export default defineConfig({
       pages: '/src/pages',
       contexts: '/src/contexts',
       utilities: '/src/utilities',
+      hooks: '/src/hooks',
     },
   },
 });
