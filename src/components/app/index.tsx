@@ -8,19 +8,17 @@ import { Sidebar } from 'components/sidebar';
 import { Spinner } from 'components/spinner';
 import { Route, Routes } from 'react-router-dom';
 
-export const App = () => {
-  return (
-    <>
-      <Header />
-      <Suspense fallback={<Spinner />}>
-        <Routes>
-          {routes.map(({ path, page }) => (
-            <Route key={path} path={path} element={page} />
-          ))}
-        </Routes>
-      </Suspense>
-      <Sidebar />
-      <Footer />
-    </>
-  );
-};
+export const App = () => (
+  <>
+    <Header />
+    <Suspense fallback={<Spinner />}>
+      <Routes>
+        {routes.map(({ path, page }) => (
+          <Route key={path} path={path} element={page} />
+        ))}
+      </Routes>
+    </Suspense>
+    <Sidebar />
+    <Footer />
+  </>
+);

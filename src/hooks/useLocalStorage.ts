@@ -2,17 +2,13 @@ import { useEffect, useState } from 'react';
 
 export function useLocalStorage<T>(key: string, defaultValue: T) {
   const [value, setValue] = useState(() => {
-    let currentValue: T;
-
     try {
-      currentValue = JSON.parse(
-        localStorage.getItem(key) || String(defaultValue)
-      );
+      const serializedValue = localStorage.getItem(key);
+      if (serializedValue === null) return defaultValue;
+      return JSON.parse(serializedValue);
     } catch (error) {
-      currentValue = defaultValue;
+      return defaultValue;
     }
-
-    return currentValue;
   });
 
   useEffect(() => {

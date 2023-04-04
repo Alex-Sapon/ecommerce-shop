@@ -10,12 +10,28 @@ export const Wrapper = styled.div`
   top: 0;
   right: 0;
   width: 100vw;
-  height: 100%;
-  background-color: ${(props) => props.theme.color.primary};
-  transition: all 0.3s ease;
-  z-index: 300;
+  height: 100vh;
+  z-index: 900;
   padding: 30px;
+  transition: all 1s ease;
+  background-color: ${(props) => props.theme.color.primary};
   box-shadow: ${(props) => props.theme.shadow.sidebar};
+
+  &.sidebar-enter {
+    right: 0;
+  }
+
+  &.sidebar-enter-active {
+    right: 0;
+  }
+
+  &.sidebar-exit {
+    right: 0;
+  }
+
+  &.sidebar-exit-active {
+    right: -100vw;
+  }
 
   @media (${(props) => props.theme.device.tablet}) {
     width: 50vw;
