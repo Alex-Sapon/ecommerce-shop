@@ -10,5 +10,5 @@ const NotFound = React.lazy(() => import('pages/NotFound'));
 export const routes = [
   { path: PATH.HOME, page: <Home /> },
   { path: PATH.PRODUCT, page: <ProductDetails /> },
-  { path: PATH.PRODUCT, page: <NotFound /> },
+  { path: PATH.NOT_FOUND, page: <NotFound /> },
 ];

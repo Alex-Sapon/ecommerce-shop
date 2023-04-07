@@ -1,14 +1,9 @@
-import { PATH } from 'constants/paths';
-
-import { Link } from 'react-router-dom';
+import { NotFoundPage } from 'components/notFound';
 import { Container } from 'styles/container';
 
 const NotFound = () => (
   <Container>
-    <div>
-      <div>NotFound</div>
-      <Link to={PATH.HOME} />
-    </div>
+    <NotFoundPage />
   </Container>
 );
 
