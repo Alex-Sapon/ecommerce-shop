@@ -13,16 +13,16 @@ export const Wrapper = styled.div`
   height: 100vh;
   z-index: 900;
   padding: 30px;
-  transition: all 1s ease;
   background-color: ${(props) => props.theme.color.primary};
   box-shadow: ${(props) => props.theme.shadow.sidebar};
 
   &.sidebar-enter {
-    right: 0;
+    transform: translateX(100%);
   }
 
   &.sidebar-enter-active {
-    right: 0;
+    transform: translateX(0);
+    transition: all 400ms;
   }
 
   &.sidebar-exit {
@@ -30,7 +30,8 @@ export const Wrapper = styled.div`
   }
 
   &.sidebar-exit-active {
-    right: -100vw;
+    right: -100%;
+    transition: all 1000ms;
   }
 
   @media (${(props) => props.theme.device.tablet}) {

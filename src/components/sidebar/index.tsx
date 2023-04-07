@@ -34,6 +34,7 @@ export const Sidebar = () => {
       timeout={300}
       classNames="sidebar"
       unmountOnExit
+      mountOnEnter
       nodeRef={nodeRef}
     >
       <Wrapper ref={nodeRef}>
