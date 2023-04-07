@@ -22,7 +22,7 @@ export const Wrapper = styled.div`
 
   &.sidebar-enter-active {
     transform: translateX(0);
-    transition: all 400ms;
+    transition: all 300ms;
   }
 
   &.sidebar-exit {

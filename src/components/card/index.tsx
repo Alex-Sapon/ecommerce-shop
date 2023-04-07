@@ -3,8 +3,8 @@ import { useContext } from 'react';
 import {
   Buttons,
   Detail,
-  Img,
-  ImgWrapper,
+  Image,
+  ImageWrapper,
   Plus,
   Title,
   Text,
@@ -28,9 +28,9 @@ export const Card = ({ product }: CardProps) => {
 
   return (
     <Wrapper>
-      <ImgWrapper>
-        <Img src={image} />
-      </ImgWrapper>
+      <ImageWrapper>
+        <Image src={image} />
+      </ImageWrapper>
       <Title>{category}</Title>
       <Text>{title}</Text>
       <Text>{formatCurrency(price)}</Text>

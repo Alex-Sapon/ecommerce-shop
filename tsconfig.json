@@ -25,6 +25,7 @@
       "contexts/*": ["contexts/*"],
       "utilities/*": ["utilities/*"],
       "hooks/*": ["hooks/*"],
+      "types/*": ["types/*"],
     }
   },
   "include": [

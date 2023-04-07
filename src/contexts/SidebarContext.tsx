@@ -1,6 +1,6 @@
 import { createContext, useCallback, useMemo, useState } from 'react';
 
-import { ProviderType } from 'components/types';
+import { ProviderType } from 'types';
 
 type SidebarContextType = {
   isOpen: boolean;

@@ -6,8 +6,9 @@ import {
   useState,
 } from 'react';
 
-import { ProviderType } from 'components/types';
 import { ProductsDataType } from 'contexts/ProductContext';
+import { useLocalStorage } from 'hooks/useLocalStorage';
+import { ProviderType } from 'types';
 
 type CartContextType = {
   cart: ProductsDataType[];
@@ -21,7 +22,11 @@ type CartContextType = {
 export const CartContext = createContext({} as CartContextType);
 
 export const CartProvider = ({ children }: ProviderType) => {
-  const [cart, setCart] = useState<ProductsDataType[]>([]);
+  const [cart, setCart] = useLocalStorage<ProductsDataType[]>(
+    'ecommerce-shop-cart',
+    []
+  );
+
   const [calculation, setCalculation] = useState({ amount: 0, total: 0 });
 
   const addToCart = useCallback(
@@ -37,14 +42,14 @@ export const CartProvider = ({ children }: ProviderType) => {
         return [...cart, { ...product, amount: 1 }];
       });
     },
-    [cart]
+    [cart, setCart]
   );
 
   const deleteProduct = useCallback(
     (id: number) => {
       setCart(cart.filter((product) => product.id !== id));
     },
-    [cart]
+    [cart, setCart]
   );
 
   const removeFromCart = useCallback(
@@ -68,10 +73,10 @@ export const CartProvider = ({ children }: ProviderType) => {
         deleteProduct(id);
       }
     },
-    [cart, deleteProduct]
+    [cart, deleteProduct, setCart]
   );
 
-  const clearCart = () => setCart([]);
+  const clearCart = useCallback(() => setCart([]), [setCart]);
 
   const memoizedContext = useMemo(() => {
     return {
@@ -82,7 +87,7 @@ export const CartProvider = ({ children }: ProviderType) => {
       cart,
       calculation,
     };
-  }, [addToCart, removeFromCart, deleteProduct, cart, calculation]);
+  }, [addToCart, removeFromCart, deleteProduct, clearCart, cart, calculation]);
 
   useEffect(() => {
     setCalculation({

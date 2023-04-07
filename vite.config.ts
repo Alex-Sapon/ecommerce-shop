@@ -14,6 +14,7 @@ export default defineConfig({
       contexts: '/src/contexts',
       utilities: '/src/utilities',
       hooks: '/src/hooks',
+      types: '/src/types',
     },
   },
 });

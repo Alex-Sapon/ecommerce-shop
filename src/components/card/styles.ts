@@ -9,7 +9,7 @@ export const Wrapper = styled.li`
   user-select: none;
 `;
 
-export const Img = styled.img`
+export const Image = styled.img`
   max-height: 160px;
   object-fit: cover;
   transition: transform 0.4s ease;
@@ -55,7 +55,7 @@ export const Detail = styled(Link)`
   box-shadow: ${(props) => props.theme.shadow.details};
 `;
 
-export const ImgWrapper = styled.div`
+export const ImageWrapper = styled.div`
   width: 100%;
   height: 250px;
   border: 1px solid #e4e4e4;
@@ -66,7 +66,7 @@ export const ImgWrapper = styled.div`
   overflow: hidden;
   margin-bottom: 10px;
 
-  &:hover ${Img} {
+  &:hover ${Image} {
     transform: scale(1.1);
   }
 
